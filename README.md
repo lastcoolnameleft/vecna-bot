@@ -7,7 +7,13 @@ I was going to call it the "Gaze-bot/Gazebo-t, after [my favorite D&D story](htt
 
 This bot is uses the [MS BotFramework](https://dev.botframework.com/) to build a simple D&D character builder.  It's not very impressive yet.  I haven't even told my mom about it.
 
-## Prep
+## F%#@-it!  We'll do it live!
+
+Check out my live implementation of it running on Azure App Service for Linux using Docker: [Click here](https://vecna-bot.azurewebsites.net/webchat/?s=NLmdeZuEgUU.cwA.fpA.oHDBKRnwOno6wfCFFfasLHMtyREPp73-1NWGAYOeOBU)
+
+*NOTE* If it's not running, I must have broken something as I'm still experimenting.  Feel free to open an issue and/or clone and run locally.
+
+## Install
 
 * Download and run the MS Bot Framework Emulator
   * https://docs.botframework.com/en-us/tools/bot-framework-emulator/
