@@ -19,7 +19,7 @@
     "build": "tsc",
     "build-watch": "tsc -p .",
     "run-watch": "nodemon js/app.js",
-    "start": "node js/app.js"
+    "start": "tsc && node js/app.js"
   },
   "author": "Tommy Falgout",
   "license": "ISC"
