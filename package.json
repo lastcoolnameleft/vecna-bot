@@ -7,7 +7,7 @@
     "botbuilder": "^3.4.2",
     "express": "^4.14.1",
     "roll": "^1.2.0",
-    "tsc": "^1.20150623.0"
+    "typescript": "^2.1.6"
   },
   "devDependencies": {
     "@types/node": "^7.0.5",
@@ -17,9 +17,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "build-watch": "tsc -p .",
+    "build-watch": "tsc -w",
     "run-watch": "nodemon js/app.js",
-    "postinstall": "node_modules/tsc/bin/tsc",
+    "postinstall": "node_modules/typescript/bin/tsc",
     "start": "node js/app.js"
   },
   "author": "Tommy Falgout",

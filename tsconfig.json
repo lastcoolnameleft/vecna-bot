@@ -5,8 +5,5 @@
     "module": "commonjs",
     "rootDir": "src",
     "sourceMap":  true
-  },
-  "files": [
-    "**/*.ts"
-  ]
+  }
 }
