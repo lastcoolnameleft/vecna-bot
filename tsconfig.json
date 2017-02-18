@@ -4,8 +4,9 @@
     "outDir": "js/",
     "module": "commonjs",
     "rootDir": "src",
-    "emitDecoratorMetadata": true,
-    "watch": true,
     "sourceMap":  true
-  }
+  },
+  "files": [
+    "**/*.ts"
+  ]
 }
