@@ -19,7 +19,8 @@
     "build": "tsc",
     "build-watch": "tsc -p .",
     "run-watch": "nodemon js/app.js",
-    "start": "tsc && node js/app.js"
+    "postinstall": "node_modules/tsc/bin/tsc",
+    "start": "node js/app.js"
   },
   "author": "Tommy Falgout",
   "license": "ISC"
