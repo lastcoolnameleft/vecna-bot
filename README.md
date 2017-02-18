@@ -1,5 +1,5 @@
 # vecna-bot
-A D&amp;D bot using MS BotFramework
+A D&amp;D bot using MS BotFramework.  I was going to call it the "Gaze-bot/Gazebo-t, after [my favorite D&D story](http://www.netfunny.com/rhf/jokes/98/Jul/gazebo.html), but was concerned the name wouldn't read well in text as it does in my head.
 
 ## Background
 
