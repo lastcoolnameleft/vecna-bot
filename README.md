@@ -25,4 +25,5 @@ npm run run-watch
 
 * Start the Bot Framework Emulator
 * Use the default settings
+* Type "help" to get the system primed.
   
