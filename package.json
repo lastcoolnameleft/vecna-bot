@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "botbuilder": "^3.4.2",
+    "express": "^4.14.1",
     "roll": "^1.2.0"
   },
   "devDependencies": {
@@ -15,7 +16,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-watch": "tsc -p .",
-    "run-watch": "nodemon js/app.js"
+    "run-watch": "nodemon js/app.js",
+    "start": "node js/app.js"
   },
   "author": "Tommy Falgout",
   "license": "ISC"

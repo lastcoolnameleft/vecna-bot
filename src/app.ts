@@ -3,11 +3,24 @@ import * as builder from 'botbuilder';
 import * as argv from 'yargs';
 import * as Roll from 'roll';
 import * as config from './config';
+import * as express from 'express';
 
-var connector = new builder.ChatConnector({
-  appId: process.env.MICROSOFT_APP_ID ? process.env.MICROSOFT_APP_ID : argv.id,
-  appPassword: process.env.MICROSOFT_APP_PASSWORD ? process.env.MICROSOFT_APP_PASSWORD : argv.password
+const app = express();
+
+// Setup Express Server
+app.listen(process.env.port || process.env.PORT || 3978, '::', () => {
+    console.log('Server Up');
 });
+// Create chat bot
+var connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+var bot = new builder.UniversalBot(connector);
+app.post('/api/messages', connector.listen());
+
+// Create endpoint for agent / call center
+app.use('/webchat', express.static('public'));
 
 var bot = new builder.UniversalBot(connector, function(session) {
   session.send('Try one of these commands: help');
@@ -17,7 +30,8 @@ var bot = new builder.UniversalBot(connector, function(session) {
 bot.dialog('helpDialog', function (session) {
   let sendStr = "Supported Commands:\n\n"
     + "* roll <xdy>: Roll a die. (e.g. roll 3d6)\n"
-    + "* character: Create a new character\n";
+    + "* character: Create a new character\n"
+    + "* whoami: See character details";
   session.send(sendStr);
   // Send help message and end dialog.
   session.endDialog('Help complete');
@@ -37,41 +51,32 @@ bot.dialog('rollDialog', (session, args) => {
 bot.dialog('createCharacterDialog', [
   (session) => {
     session.userData.character = {};
-    console.log(session.userData);
     builder.Prompts.text(session, 'What do you want to name your character?');
   },
   (session, results) => {
-    console.log(results.response);
-    console.log(session.userData);
     session.userData.character.name = results.response;
     session.send('Welcome, ' + session.userData.character.name);
-    console.log(config);
     builder.Prompts.choice(session, "What race?", Object.keys(config.races));
   },
   (session, results) => {
-    console.log(results.response);
     session.userData.character.race = results.response.entity;
     session.send(session.userData.character.race + ' is a good choice.');
     builder.Prompts.choice(session, "What class?", Object.keys(config.classes));
   },
   (session, results) => {
-    console.log(results.response);
     session.userData.character.class = results.response.entity;
     session.endDialog(session.userData.character.class + ' is a good choice.');
-    console.log(session.userData);
   }
 ]).triggerAction({ matches: /character/i });
 
 
 bot.dialog('whoami', (session) => {
-  console.log(session.userData);
   if (!session.userData.character) {
     session.endDialog('You need to create a character first.  Type: character');
   } else {
     let response = 'name: ' + session.userData.character.name + "\n\n"
       + 'race: ' + session.userData.character.race + "\n\n"
       + 'class: ' + session.userData.character.class;
-      session.send(response);
       session.endDialog(response);
   }
 }).triggerAction({ matches: /whoami/i });
@@ -88,10 +93,11 @@ bot.dialog('card', (session) => {
     session.send(msg);
 }).triggerAction({ matches: /card/i });
 */
-
+/*
 var restify = require('restify');
 var server = restify.createServer();
 server.listen(3978, function () {
   console.log('test bot endpont at http://localhost:3978/api/messages');
 });
 server.post('/api/messages', connector.listen());
+*/
