@@ -1,9 +1,8 @@
 'use strict';
-import * as builder from 'botbuilder';
-import * as argv from 'yargs';
-import * as Roll from 'roll';
-import * as config from './config';
-import * as express from 'express';
+var builder = require('botbuilder');
+var Roll = require('roll');
+var config = require('./config');
+var express = require('express');
 
 const app = express();
 
