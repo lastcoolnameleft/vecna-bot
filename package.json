@@ -1,0 +1,22 @@
+{
+  "name": "vecna-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "botbuilder": "^3.4.2",
+    "roll": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.5",
+    "restify": "^4.1.1",
+    "yargs": "^3.24.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-watch": "tsc -p .",
+    "run-watch": "nodemon js/app.js"
+  },
+  "author": "Tommy Falgout",
+  "license": "ISC"
+}
