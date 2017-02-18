@@ -5,13 +5,14 @@ A D&amp;D bot using MS BotFramework.  I was going to call it the "Gaze-bot/Gazeb
 
 This bot is uses the [MS BotFramework](https://dev.botframework.com/) to build a simple D&D character builder.  It's not very impressive yet.  I haven't even told my mom about it.
 
-## Install
+## Prep
 
-Download and run the MS Bot Framework Emulator
-https://docs.botframework.com/en-us/tools/bot-framework-emulator/
-
+* Download and run the MS Bot Framework Emulator
+  * https://docs.botframework.com/en-us/tools/bot-framework-emulator/
 ```
-npm build
+git clone git@github.com:lastcoolnameleft/vecna-bot.git
+cd vecna-bot
+npm install
 ```
 
 
