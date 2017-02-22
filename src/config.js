@@ -1,11 +1,10 @@
-function config () {
-    let classes = {
+const config  = {
+    'classes': {
         'wizard': {},
         'rogue': {},
         'warrior': {},
-    };
-
-    let races = {
+    },
+    'races': {
         'human': {
             'modifier': {},
             'size': 'medium',
@@ -33,6 +32,6 @@ function config () {
             'trait': ['low-light-vision']
         }
     }
-}
+};
 
 module.exports = config;
